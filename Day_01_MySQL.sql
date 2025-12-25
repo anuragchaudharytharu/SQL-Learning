@@ -24,6 +24,24 @@ USE startersql;
 -- DROP TABLE table_name ===> delete table
 DROP TABLE IF EXISTS startersql;
 
+/*
+	Creating table with constraint name
+		Custom constraint names make it easy to drop or modify constraints later
+        We can only give custom constraint name to PRIMARY KEY, FROEIGN KEY, UNIQUE and CHECK
+        
+			CREATE TABLE teacher (
+				teacher_id INT,
+				department_id INT,
+				salary INT,
+
+				CONSTRAINT pk_teacher PRIMARY KEY (teacher_id),
+				CONSTRAINT fk_teacher_department FOREIGN KEY (department_id) REFERENCES department(id) 
+					ON DELETE CASCADE
+					ON UPDATE CASCADE,
+				CONSTRAINT chk_salary_positive CHECK (salary >= 0)
+			);
+*/
+
 -- CREATE TABLE table_name(table_datas) ===> creating table 
 CREATE TABLE IF NOT EXISTS startersql (
 id INT AUTO_INCREMENT PRIMARY KEY,
